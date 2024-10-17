@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor me dá o C*</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/17/couple-1867276_1280.jpg'); /* URL da imagem */
+            background-size: contain; /* Faz a imagem aparecer inteira */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #f8f9fa;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        #button-container {
+            margin-top: 30px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 20px;
+            cursor: pointer;
+            position: relative;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #no-button {
+            background-color: red;
+            color: white;
+        }
+
+        #yes-button {
+            background-color: green;
+            color: white;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #f8f9fa;
+            display: none;
+            text-shadow: 2px 2px 4px #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Amor me dá o cu?</h1>
+
+    <div id="button-container">
+        <button id="yes-button">SIM</button>
+        <button id="no-button">NÃO</button>
+    </div>
+
+    <p id="result">Eu sabia! 😁</p>
+
+    <script>
+        const noButton = document.getElementById("no-button");
+        const yesButton = document.getElementById("yes-button");
+        const resultText = document.getElementById("result");
+
+        // Função para mover o botão "NÃO" aleatoriamente na tela
+        noButton.addEventListener("mouseenter", () => {
+            const containerWidth = window.innerWidth - noButton.offsetWidth;
+            const containerHeight = window.innerHeight - noButton.offsetHeight;
+            
+            // Gera posições aleatórias
+            const randomX = Math.floor(Math.random() * containerWidth);
+            const randomY = Math.floor(Math.random() * containerHeight);
+
+            // Atualiza a posição do botão
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        // Exibe a mensagem quando o botão "SIM" é clicado
+        yesButton.addEventListener("click", () => {
+            resultText.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
